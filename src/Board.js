@@ -31,6 +31,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   const [board, setBoard] = useState(createBoard());
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
+  //this part I get
   function createBoard() {
     let initialBoard = [];
     // TODO: create array-of-arrays of true/false values
@@ -46,12 +47,13 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
-
+    //return board.filter(c => c === true);
    return board.every(row => row.every(cell => !cell))
   }
 
   function flipCellsAround(coord) {
     setBoard(oldBoard => {
+      //where are you getting the x and y?
       const [y, x] = coord.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
@@ -70,6 +72,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
       // TODO: in the copy, flip this cell and the cells around it
       //flipCell in copy
+      //I don't know what this is doing
       flipCell(y, x, boardCopy);
       flipCell(y, x-1, boardCopy);
       flipCell(y, x+1, boardCopy);
@@ -88,7 +91,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   if (hasWon()) {
     <div>You win!</div>
   } 
-  // make table board
+  // make table board, what's the point of the tblboard if you already have board and boardCopy?
   let tblBoard = [];
 
   for (let y = 0; y < ncols; y++) {
