@@ -53,7 +53,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   function flipCellsAround(coord) {
     setBoard(oldBoard => {
-      //where are you getting the x and y?
+      //where are the x and y coming from?
       const [y, x] = coord.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
@@ -72,7 +72,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
       // TODO: in the copy, flip this cell and the cells around it
       //flipCell in copy
-      //I don't know what this is doing
+      //I don't know what this is doing or the purpose of it
       flipCell(y, x, boardCopy);
       flipCell(y, x-1, boardCopy);
       flipCell(y, x+1, boardCopy);
@@ -87,9 +87,9 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   // if the game is won, just show a winning msg & render nothing else
 
-  // TODO
+  // TODO, I don't think this is working but I don't know why
   if (hasWon()) {
-    <div>You win!</div>
+    return <div>You win!</div>
   } 
   // make table board, what's the point of the tblboard if you already have board and boardCopy?
   let tblBoard = [];
